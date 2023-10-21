@@ -11,7 +11,6 @@ import {
 import { UtilService } from '../../services/util';
 import { useFonts, Sora_400Regular, Sora_700Bold } from '@expo-google-fonts/sora';
 import { ArchitectsDaughter_400Regular } from '@expo-google-fonts/architects-daughter';
-import { setCustomText } from 'react-native-global-props';
 import { LinearGradient } from 'expo-linear-gradient';
 import PepperIcon from '../pepperIcon/pepperIcon';
 
@@ -20,14 +19,12 @@ const PepperLandingPage = (): JSX.Element => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const navigation = useNavigation<any>();
   const [isLangingPageShowing, setIsLangingPageShowing] = useState(false);
-  const [isOrganizer, setIsOrganizer] = useState(false);
   // Font name must be named like this
   // eslint-disable-next-line @typescript-eslint/naming-convention
   let [fontsLoaded] = useFonts({ Sora_400Regular, Sora_700Bold, ArchitectsDaughter_400Regular });
 
   useEffect(() => {
     if (!fontsLoaded) { return; }
-    setCustomText({ style: { fontFamily: 'Sora_400Regular' } });
     (async() => {
       try {
         const isLoggedin = await LoginService.isLoggedin();
@@ -35,8 +32,6 @@ const PepperLandingPage = (): JSX.Element => {
           navigation.navigate(PepperStackRoutes.Main);
           return;
         }
-        const isOrganizer = await UtilService.isOrganizer();
-        setIsOrganizer(isOrganizer);
         setIsLangingPageShowing(true);
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (error: any) {
@@ -46,16 +41,10 @@ const PepperLandingPage = (): JSX.Element => {
   }, [fontsLoaded]);
 
   const onGo = (): void => {
-    if (isOrganizer) {
-      navigation.navigate(PepperOrganizerStackRoutes.Login);
-      return;
-    }
-    navigation.navigate(PepperStackRoutes.LoginRouter);
+    navigation.navigate(PepperOrganizerStackRoutes.Tutorial);
+    return;
   };
 
-  const onToggleApp = async(): Promise<void> => {
-    await UtilService.toggleBetweenUserAndOrganizer();
-  };
 
   return isLangingPageShowing ?
     (
@@ -75,8 +64,8 @@ const PepperLandingPage = (): JSX.Element => {
           <TouchableOpacity onPress={onGo} style={styles.goButton}>
             <Text style={styles.goButtonText}> Let's go! </Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={onToggleApp}>
-            <Text style={styles.switchToOrganizerButton}>{ !isOrganizer ? 'Become an organizer!' : 'Looking for love ? find Pepper Parties!'}</Text>
+          <TouchableOpacity>
+            <Text style={styles.switchToOrganizerButton}>{ 'Looking for love ? find Pepper Parties!'}</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.founders}>

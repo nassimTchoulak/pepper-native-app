@@ -19,4 +19,5 @@ export enum PepperOrganizerStackRoutes {
   Main = 'main',
   NewParty = 'NewParty',
   CancelParty = 'CancelParty',
+  Tutorial = 'Tutorial'
 }

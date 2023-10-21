@@ -12,32 +12,6 @@ export class UtilService {
     Updates.reloadAsync();
   }
 
-  public static async isOrganizer(): Promise<boolean> {
-    const isOrganizer = await SecureStore.getItemAsync(SecureStoreKeys.Organizer);
-    return isOrganizer === 'true';
-  }
-
-  public static async switchToOrganizer(): Promise<void> {
-    await UtilService.cleanHistory();
-    await SecureStore.setItemAsync(SecureStoreKeys.Organizer, 'true');
-    UtilService.reloadApp();
-
-  }
-
-  public static async switchToUser(): Promise<void> {
-    await UtilService.cleanHistory();
-    await SecureStore.setItemAsync(SecureStoreKeys.Organizer, 'false');
-    UtilService.reloadApp();
-  }
-
-  public static async toggleBetweenUserAndOrganizer(): Promise<void> {
-    const isOrganizer = await UtilService.isOrganizer();
-    if (isOrganizer) {
-      await UtilService.switchToUser();
-      return;
-    }
-    await UtilService.switchToOrganizer();
-  }
 
   public static async throwError(error: object): Promise<void> {
     await UtilService.cleanHistory();

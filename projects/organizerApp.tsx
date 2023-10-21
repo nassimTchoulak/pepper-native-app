@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { RootSiblingParent } from 'react-native-root-siblings';
 import { Provider } from 'react-redux';
 import store from '../services/store';
-import { PepperTitle, PepperQrCode } from '../components/pepperHeader/pepperHeader';
+import { PepperTitle } from '../components/pepperHeader/pepperHeader';
 import { PepperOrganizerStackRoutes } from '../models/routes';
 import { white } from '../styles/common';
 import PepperLandingPage from '../components/pepperLandingPage/pepperLandingPage';
@@ -13,6 +13,7 @@ import PepperOrganizerLogin from '../components/pepperOrganizerLogin/pepperOrgan
 import PepperOrganizerSubscription from '../components/pepperOrganizerSubscription/pepperOrganizerSubscription';
 import PepperOrganizerNewParty from '../components/pepperOrganizerNewParty/pepperOrganizerNewParty';
 import PepperOrganizerCancelParty from '../components/pepperOrganizerCancelParty/pepperOrganizerCancelParty';
+import PepperTutorial from '../components/pepperTutorial/pepperTutorial';
 
 const ReactStack = createNativeStackNavigator();
 
@@ -27,9 +28,10 @@ const PepperOrganizerApp = (): JSX.Element => (
             headerBackVisible: false,
             headerStyle: { backgroundColor: white },
             headerTitle: () => (<PepperTitle/>),
-            headerRight: () => (<PepperQrCode />),
+            // headerRight: () => (<PepperQrCode />),
           })}>
           <ReactStack.Screen name={PepperOrganizerStackRoutes.LandingPage} component={PepperLandingPage} options={{ headerShown: false }}/>
+          <ReactStack.Screen name={PepperOrganizerStackRoutes.Tutorial} component={PepperTutorial} options={{ headerShown: false }}/>
           <ReactStack.Screen name={PepperOrganizerStackRoutes.Login} component={PepperOrganizerLogin} />
           <ReactStack.Screen name={PepperOrganizerStackRoutes.Subscription} component={PepperOrganizerSubscription} />
           <ReactStack.Screen name={PepperOrganizerStackRoutes.Main} component={PepperOrganizerMain} />
