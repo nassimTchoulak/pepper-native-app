@@ -11,7 +11,7 @@ import {
 import { UtilService } from '../../services/util';
 import { useFonts, Sora_400Regular, Sora_700Bold } from '@expo-google-fonts/sora';
 import { ArchitectsDaughter_400Regular } from '@expo-google-fonts/architects-daughter';
-import { setCustomText } from 'react-native-global-props';
+// import { setCustomText } from 'react-native-global-props';
 import { LinearGradient } from 'expo-linear-gradient';
 import PepperIcon from '../pepperIcon/pepperIcon';
 
@@ -27,7 +27,7 @@ const PepperLandingPage = (): JSX.Element => {
 
   useEffect(() => {
     if (!fontsLoaded) { return; }
-    setCustomText({ style: { fontFamily: 'Sora_400Regular' } });
+    // setCustomText({ style: { fontFamily: 'Sora_400Regular' } });
     (async() => {
       try {
         const isLoggedin = await LoginService.isLoggedin();

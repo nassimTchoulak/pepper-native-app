@@ -15,7 +15,7 @@ import PepperImage, { PepperImages } from '../pepperImage/pepperImage';
 import { usePepperDispatch } from '../../hooks/store.hooks';
 import { deleteParty } from '../../features/user/userActions';
 import { useNavigation } from '@react-navigation/native';
-import { createOpenLink } from 'react-native-open-maps';
+// import { createOpenLink } from 'react-native-open-maps';
 import { limitTextLength, keyExtractor } from '../../helpers/uiHelper';
 import * as Clipboard from 'expo-clipboard';
 import Toast from 'react-native-root-toast';
@@ -84,7 +84,7 @@ const PepperPartyDescription = (descriptionProps: {
   );
 
   const StaticAddress = (): JSX.Element => (<TouchableOpacity
-    onPress={createOpenLink({ query: party.location })}
+    // onPress={createOpenLink({ query: party.location })}
     onLongPress={() => {
       Clipboard.setString(party.location);
       Toast.show('Copied to clipboard', {
@@ -159,12 +159,13 @@ const PepperPartyDescription = (descriptionProps: {
           {StaticMenuList(party.foods)}
         </View>
         {
-          canCancel ? (
-            <TouchableOpacity style={styles.cancelButton}
-              onPress={() => setCancelPartyModalVisible(true)}>
-              <Text style={styles.cancelButtonText}>Cancel</Text>
-            </TouchableOpacity>
-          ) :
+          canCancel ?
+            (
+              <TouchableOpacity style={styles.cancelButton}
+                onPress={() => setCancelPartyModalVisible(true)}>
+                <Text style={styles.cancelButtonText}>Cancel</Text>
+              </TouchableOpacity>
+            ) :
             null
         }
       </View>
