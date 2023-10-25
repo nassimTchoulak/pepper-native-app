@@ -7,7 +7,6 @@ import {
   space_unit, white, fontSizeRegular, raven, black, color, fontSizeHeader, fontSizeSubHeader, grey_1, indigo, pepper, heaven,
 } from '../../styles/common';
 
-import Swiper from 'react-native-deck-swiper';
 import { LinearGradient } from 'expo-linear-gradient';
 import { addMatch } from '../../features/user/userActions';
 import { usePepperDispatch } from '../../hooks/store.hooks';
@@ -63,55 +62,7 @@ const PepperPartyAttendees = (descriptionProps: { route: { params: { party: IPar
         {
           !party.attendees || hasSwipedAll ?
             <StaticRefreshParties/> :
-            <Swiper
-              cards={party.attendees}
-              renderCard={StaticCard}
-              animateOverlayLabelsOpacity={true}
-              verticalSwipe={false}
-              overlayLabels={{
-                left: {
-                  element: <StaticNope/>,
-                  style: {
-                    wrapper: {
-                      flexDirection: 'column',
-                      alignItems: 'flex-end',
-                      justifyContent: 'flex-start',
-                      marginTop: 70,
-                      marginLeft: -50,
-                    }
-                  }
-                },
-                right: {
-                  element: <StaticYes/>,
-                  style: {
-                    wrapper: {
-                      flexDirection: 'column',
-                      alignItems: 'flex-start',
-                      justifyContent: 'flex-start',
-                      marginTop: 70,
-                      marginLeft: 50,
-                    }
-                  }
-                },
-              }}
-              overlayLabelStyle={{
-                zIndex: 20,
-                backgroundColor: 'red',
-                padding: 10,
-              }}
-              onSwipedRight={(cardIndex) => {
-                if (!!party.attendees) {
-                  storeDispatch(addMatch({ matchId: party.attendees[cardIndex].id }));
-                }
-              }}
-              onSwipedAll={() => { setHasSwipedAll(true); }}
-              backgroundColor={white}
-              cardVerticalMargin={0}
-              cardHorizontalMargin={0}
-              stackSeparation={0}
-              stackSize={3}
-              cardStyle={styles.swiper}>
-            </Swiper>
+            <Text style={{ color: pepper, fontSize: fontSizeSubHeader }}>SWIPER</Text>
         }
       </View>
       <PepperRoundButton

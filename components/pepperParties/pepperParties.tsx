@@ -6,7 +6,6 @@ import {
   space_unit, white, color, fontSizeHeader, fontSizeSubHeader, sun_2, sun,
   indigo_2, fire, fire_2, indigo_3, fontSizeRegular, pepper, pepper_2, grey_1, raven, black, heaven,
 } from '../../styles/common';
-import Swiper from 'react-native-deck-swiper';
 import { LinearGradient } from 'expo-linear-gradient';
 import PepperTag from '../pepperTags/pepperTags';
 import { IParty, StoreStatus } from '../../models/types';
@@ -113,55 +112,7 @@ const PepperParties = (): JSX.Element => {
           {
             currentParties.status !== StoreStatus.Fulfilled ?
               <ActivityIndicator size="large" color={pepper} /> :
-              <Swiper
-                cards={currentParties.parties}
-                renderCard={StaticCard}
-                animateOverlayLabelsOpacity={true}
-                verticalSwipe={false}
-                overlayLabels={{
-                  left: {
-                    element: <StaticSleeping/>,
-                    style: {
-                      wrapper: {
-                        flexDirection: 'column',
-                        alignItems: 'flex-end',
-                        justifyContent: 'flex-start',
-                        marginTop: 70,
-                        marginLeft: -50,
-                      }
-                    }
-                  },
-                  right: {
-                    element: <StaticGoing/>,
-                    style: {
-                      wrapper: {
-                        flexDirection: 'column',
-                        alignItems: 'flex-start',
-                        justifyContent: 'flex-start',
-                        marginTop: 70,
-                        marginLeft: 50,
-                      }
-                    }
-                  },
-                }}
-                overlayLabelStyle={{
-                  zIndex: 20,
-                  backgroundColor: 'red',
-                  padding: 10,
-                }}
-                // disabling linter for console for now until these are implemented
-                // eslint-disable-next-line no-console
-                onSwipedRight={(cardIndex) => storeDispatch(updateParty({ partyId: currentParties.parties[cardIndex].id })) }
-                onSwipedTop={(cardIndex) => storeDispatch(updateParty({ partyId: currentParties.parties[cardIndex].id })) }
-                // eslint-disable-next-line no-console
-                onSwipedAll={() => { setHasSwipedAll(true); }}
-                backgroundColor={white}
-                cardVerticalMargin={0}
-                cardHorizontalMargin={0}
-                stackSeparation={0}
-                stackSize={3}
-                cardStyle={styles.swiper}>
-              </Swiper>
+              <Text style={{ color: pepper, fontSize: fontSizeSubHeader }}>swiper</Text>
           }
         </View>
       }
