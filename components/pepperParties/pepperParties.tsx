@@ -13,7 +13,7 @@ import { useNavigation } from '@react-navigation/native';
 import { usePepperDispatch } from '../../hooks/store.hooks';
 import { usePepperParties } from '../../hooks/parties.hooks';
 import { fetchParties } from '../../features/parties/partiesActions';
-import { PepperStackRoutes } from '../../models/routes';
+import { PepperBuyerStackRoutes } from '../../models/routes';
 import { updateParty } from '../../features/user/userActions';
 import moment from 'moment';
 import PepperImage, { PepperImages } from '../pepperImage/pepperImage';
@@ -42,7 +42,7 @@ const PepperParties = (): JSX.Element => {
       <ImageBackground source={party.imgs[0]} style={styles.image} resizeMode="cover">
         <TouchableOpacity
           style={{ ...styles.imageMask, zIndex: styles.imageMask.zIndex + 1 }}
-          onPress={() => navigation.push(PepperStackRoutes.PartyDescription, { party, canCancel: false })}
+          onPress={() => navigation.push(PepperBuyerStackRoutes.PartyDescription, { party, canCancel: false })}
         >
         </TouchableOpacity>
         <LinearGradient colors={['transparent', color(black, .7), black]} style={styles.imageMask}>

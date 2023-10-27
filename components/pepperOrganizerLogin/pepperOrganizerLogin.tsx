@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import LoginService from '../../services/login';
 import { useNavigation } from '@react-navigation/native';
-import { PepperOrganizerStackRoutes } from '../../models/routes';
+import { PepperSellerStackRoutes } from '../../models/routes';
 import {
   PepperForm, FormType, FormSchema, MenuItem, freeNameValidator, passwordValidator,
 } from '../pepperForm';
@@ -61,7 +61,7 @@ const PepperOrganizerLogin = (): JSX.Element => {
     try {
       const isLoggedIn = await LoginService.organizerLogin(userName as string, password as string);
       if (isLoggedIn) {
-        navigation.navigate(PepperOrganizerStackRoutes.Main);
+        navigation.navigate(PepperSellerStackRoutes.Main);
       }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
@@ -76,7 +76,7 @@ const PepperOrganizerLogin = (): JSX.Element => {
   return (<>
     <StaticErrorModal/>
     <PepperForm schema={schema} onSubmit={onSubmit}/>
-    <TouchableOpacity style={styles.subscribeButton} onPress={() => { navigation.navigate(PepperOrganizerStackRoutes.Subscription); }}>
+    <TouchableOpacity style={styles.subscribeButton} onPress={() => { navigation.navigate(PepperSellerStackRoutes.Subscription); }}>
       <Text style={styles.subscribeText}>Don't have an account? Subscribe!</Text>
     </TouchableOpacity>
   </>

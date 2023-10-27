@@ -10,7 +10,7 @@ import { usePepperDispatch } from '../../hooks/store.hooks';
 import { fetchUser, resetUser, updateUser } from '../../features/user/userActions';
 import { usePepperUser } from '../../hooks/user.hooks';
 import { useNavigation } from '@react-navigation/native';
-import { PepperStackRoutes } from '../../models/routes';
+import { PepperBuyerStackRoutes } from '../../models/routes';
 import {
   FormSchema, PepperForm, FormType, cityValidator, alwaysValidValidator, MenuItem, tagValidator, freeNameValidator,
 } from '../pepperForm';
@@ -83,7 +83,7 @@ const PepperUserDescription = (): JSX.Element => {
           onPress={async() => {
             await LoginService.logout();
             storeDispatch(resetUser());
-            navigation.navigate(PepperStackRoutes.LandingPage);
+            navigation.navigate(PepperBuyerStackRoutes.LandingPage);
           }}>
           <Text style={styles.logoutButtonText}>Logout</Text>
         </TouchableOpacity>

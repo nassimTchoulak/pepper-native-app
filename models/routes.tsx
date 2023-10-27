@@ -1,4 +1,4 @@
-export enum PepperStackRoutes {
+export enum PepperBuyerStackRoutes {
   Intro = 'intro',
   Subscription = 'Subscription',
   Tutorial = 'tutorial',
@@ -12,7 +12,7 @@ export enum PepperStackRoutes {
   LandingPage = 'landingPage',
 }
 
-export enum PepperOrganizerStackRoutes {
+export enum PepperSellerStackRoutes {
   LandingPage = 'landingPage',
   Login = 'login',
   Subscription = 'subscription',

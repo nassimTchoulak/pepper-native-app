@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import PepperCarousel from '../pepperCarousel/pepperCarousel';
 import { PepperImages } from '../pepperImage/pepperImage';
-import { PepperStackRoutes } from '../../models/routes';
+import { PepperBuyerStackRoutes } from '../../models/routes';
 import { usePepperUser } from '../../hooks/user.hooks';
 import { Gender } from '../../models/types';
 import { pepper, white } from '../../styles/common';
@@ -39,7 +39,7 @@ const PepperTutorial = (): JSX.Element => {
         genderDependentSlideAfterParty,
         genderDependentSlideEncouragement,
       ]}
-      nextStep={PepperStackRoutes.Main}
+      nextStep={PepperBuyerStackRoutes.Main}
       ></PepperCarousel>
     </View>
   );

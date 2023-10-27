@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import PepperCarousel from '../pepperCarousel/pepperCarousel';
 import { PepperImages } from '../pepperImage/pepperImage';
-import { PepperStackRoutes } from '../../models/routes';
+import { PepperBuyerStackRoutes } from '../../models/routes';
 import { white, pepper } from '../../styles/common';
 
 const PepperIntro = (introProps: { route: { params: { phoneNumber: string} } }): JSX.Element => (
@@ -16,7 +16,7 @@ const PepperIntro = (introProps: { route: { params: { phoneNumber: string} } }):
       },
       { image: PepperImages.Bracelets, text: 'You will all have the same bracelets so talking to strangers will be much easier' },
     ]}
-    nextStep={PepperStackRoutes.Subscription}
+    nextStep={PepperBuyerStackRoutes.Subscription}
     paramsToPass={introProps.route.params}
     ></PepperCarousel>
   </View>

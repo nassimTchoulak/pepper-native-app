@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { RootSiblingParent } from 'react-native-root-siblings';
 import { Provider } from 'react-redux';
 import store from '../services/store';
 import { PepperTitle, PepperUserProfile, PepperQrCode } from '../components/pepperHeader/pepperHeader';
-import { PepperStackRoutes } from '../models/routes';
+import { PepperBuyerStackRoutes } from '../models/routes';
 import PepperIntro from '../components/pepperIntro/pepperIntro';
 import PepperUserSubscription from '../components/pepperUserSubscription/pepperUserSubscription';
 import PepperTutorial from '../components/pepperTutorial/pepperTutorial';
@@ -35,17 +35,17 @@ const PepperUserApp = (): JSX.Element => (
             headerLeft: () => (<PepperUserProfile navigation={navigation} route={route}/>),
             headerRight: () => (<PepperQrCode />),
           })}>
-          <ReactStack.Screen name={PepperStackRoutes.LandingPage} component={PepperLandingPage} options={{ headerShown: false }}/>
-          <ReactStack.Screen name={PepperStackRoutes.LoginRouter} component={PepperLoginRouter} />
-          <ReactStack.Screen name={PepperStackRoutes.CodeLogin} component={PepperUserCodeLogin} />
-          <ReactStack.Screen name={PepperStackRoutes.Intro} component={PepperIntro} />
-          <ReactStack.Screen name={PepperStackRoutes.Subscription} component={PepperUserSubscription} />
-          <ReactStack.Screen name={PepperStackRoutes.Tutorial} component={PepperTutorial} />
-          <ReactStack.Screen name={PepperStackRoutes.Main} component={PepperMain} />
-          <ReactStack.Screen name={PepperStackRoutes.PartyDescription} component={PepperPartyDescription} />
-          <ReactStack.Screen name={PepperStackRoutes.PartyDetails} component={PepperPartyDetails} />
-          <ReactStack.Screen name={PepperStackRoutes.MatchDescription} component={PepperMatchDescription} />
-          <ReactStack.Screen name={PepperStackRoutes.UserDescription} component={PepperUserDescription} />
+          <ReactStack.Screen name={PepperBuyerStackRoutes.LandingPage} component={PepperLandingPage} options={{ headerShown: false }}/>
+          <ReactStack.Screen name={PepperBuyerStackRoutes.LoginRouter} component={PepperLoginRouter} />
+          <ReactStack.Screen name={PepperBuyerStackRoutes.CodeLogin} component={PepperUserCodeLogin as unknown as FunctionComponent<{}>} />
+          <ReactStack.Screen name={PepperBuyerStackRoutes.Intro} component={PepperIntro as unknown as FunctionComponent<{}>} />
+          <ReactStack.Screen name={PepperBuyerStackRoutes.Subscription} component={PepperUserSubscription as unknown as FunctionComponent<{}>} />
+          <ReactStack.Screen name={PepperBuyerStackRoutes.Tutorial} component={PepperTutorial} />
+          <ReactStack.Screen name={PepperBuyerStackRoutes.Main} component={PepperMain} />
+          <ReactStack.Screen name={PepperBuyerStackRoutes.PartyDescription} component={PepperPartyDescription as unknown as FunctionComponent<{}>} />
+          <ReactStack.Screen name={PepperBuyerStackRoutes.PartyDetails} component={PepperPartyDetails as unknown as FunctionComponent<{}>} />
+          <ReactStack.Screen name={PepperBuyerStackRoutes.MatchDescription} component={PepperMatchDescription as unknown as FunctionComponent<{}>} />
+          <ReactStack.Screen name={PepperBuyerStackRoutes.UserDescription} component={PepperUserDescription as unknown as FunctionComponent<{}>} />
         </ReactStack.Navigator>
       </NavigationContainer>
     </Provider>

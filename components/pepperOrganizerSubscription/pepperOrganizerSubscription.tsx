@@ -14,7 +14,7 @@ import {
 } from '../pepperForm';
 import { PepperFormStepper } from '../pepperForm/pepperFormStepper';
 import { useNavigation } from '@react-navigation/native';
-import { PepperOrganizerStackRoutes } from '../../models/routes';
+import { PepperSellerStackRoutes } from '../../models/routes';
 import LoginService from '../../services/login';
 import { UtilService } from '../../services/util';
 
@@ -121,7 +121,7 @@ const PepperOrganizerSubscription = (): JSX.Element => {
             imgs as Array<{ uri: string }>,
           );
           if (subcribeSuccess) {
-            navigation.navigate(PepperOrganizerStackRoutes.Main);
+            navigation.navigate(PepperSellerStackRoutes.Main);
           }
         // we are catching an error that could be anything
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -129,7 +129,7 @@ const PepperOrganizerSubscription = (): JSX.Element => {
           UtilService.throwError(error);
         }
       }}/>
-      <TouchableOpacity style={styles.loginButton} onPress={() => { navigation.navigate(PepperOrganizerStackRoutes.Login); }}>
+      <TouchableOpacity style={styles.loginButton} onPress={() => { navigation.navigate(PepperSellerStackRoutes.Login); }}>
         <Text style={styles.loginText}>Already have an account?</Text>
       </TouchableOpacity>
     </View>

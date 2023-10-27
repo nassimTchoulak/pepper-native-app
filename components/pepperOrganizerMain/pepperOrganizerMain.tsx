@@ -9,7 +9,7 @@ import LoginService from '../../services/login';
 import { usePepperDispatch } from '../../hooks/store.hooks';
 import { resetOrganizer, updateOrganizer } from '../../features/organizer/organizerActions';
 import { useNavigation } from '@react-navigation/native';
-import { PepperOrganizerStackRoutes } from '../../models/routes';
+import { PepperSellerStackRoutes } from '../../models/routes';
 import {
   FormSchema, PepperForm, FormType, alwaysValidValidator, MenuItem,
   freeNameValidator, addressValidator, KeyBoardType, phoneNumberValidator, numberValidator,
@@ -97,10 +97,10 @@ const PepperOrganizerMain = (): JSX.Element => {
   const onDateChange = (date: Moment): void => {
     const party = getPartyFromDate(date);
     if (isThereAPartyAtDate(date) && party) {
-      navigation.navigate(PepperOrganizerStackRoutes.CancelParty, { partyId: party.id });
+      navigation.navigate(PepperSellerStackRoutes.CancelParty, { partyId: party.id });
       return;
     }
-    navigation.navigate(PepperOrganizerStackRoutes.NewParty, { date: date.toISOString() });
+    navigation.navigate(PepperSellerStackRoutes.NewParty, { date: date.toISOString() });
   };
 
   const getCustomDates = (): CustomDateStyle[] => currentOrganizer.organizer.parties.map((party) => ({
@@ -164,7 +164,7 @@ const PepperOrganizerMain = (): JSX.Element => {
           onPress={async() => {
             await LoginService.logout();
             storeDispatch(resetOrganizer());
-            navigation.navigate(PepperOrganizerStackRoutes.LandingPage);
+            navigation.navigate(PepperSellerStackRoutes.LandingPage);
           }}>
           <Text style={styles.logoutButtonText}>Logout</Text>
         </TouchableOpacity>

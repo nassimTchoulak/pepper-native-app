@@ -6,7 +6,7 @@ import {
 } from '../pepperForm';
 import { codeValidator } from '../pepperForm/validators';
 import { useNavigation } from '@react-navigation/native';
-import { PepperStackRoutes } from '../../models/routes';
+import { PepperBuyerStackRoutes } from '../../models/routes';
 import LoginService from '../../services/login';
 import Toast from 'react-native-root-toast';
 import { UtilService } from '../../services/util';
@@ -35,7 +35,7 @@ const PepperUserCodeLogin = (loginProps: { route: { params: { phoneNumber: strin
         try {
           const loginSuccess = await LoginService.login(phoneNumber, code as string);
           if (loginSuccess) {
-            navigation.navigate(PepperStackRoutes.Main);
+            navigation.navigate(PepperBuyerStackRoutes.Main);
           }
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {

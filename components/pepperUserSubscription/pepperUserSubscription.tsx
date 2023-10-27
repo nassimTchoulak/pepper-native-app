@@ -13,7 +13,7 @@ import {
 } from '../pepperForm';
 import { PepperFormStepper } from '../pepperForm/pepperFormStepper';
 import { useNavigation } from '@react-navigation/native';
-import { PepperStackRoutes } from '../../models/routes';
+import { PepperBuyerStackRoutes } from '../../models/routes';
 import LoginService from '../../services/login';
 import { Gender } from '../../models/types';
 import { UtilService } from '../../services/util';
@@ -95,7 +95,7 @@ const PepperUserSubscription = (subscriptionProps: { route: { params: { phoneNum
             (socialMedia as SocialMedia).snapchat as string,
           );
           if (subcribeSuccess) {
-            navigation.navigate(PepperStackRoutes.Tutorial);
+            navigation.navigate(PepperBuyerStackRoutes.Tutorial);
           }
         // we are catching an error that could be anything
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -121,7 +121,7 @@ const PepperUserSubscription = (subscriptionProps: { route: { params: { phoneNum
       }}/>
       {
         hasGoToLoginButton ?
-          <TouchableOpacity style={styles.loginButton} onPress={() => { navigation.navigate(PepperStackRoutes.LoginRouter); }}>
+          <TouchableOpacity style={styles.loginButton} onPress={() => { navigation.navigate(PepperBuyerStackRoutes.LoginRouter); }}>
             <Text style={styles.loginText}>Already have an account?</Text>
           </TouchableOpacity> :
           null

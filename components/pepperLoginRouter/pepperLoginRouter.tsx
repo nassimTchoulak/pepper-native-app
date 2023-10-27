@@ -1,7 +1,7 @@
 import React from 'react';
 import LoginService from '../../services/login';
 import { useNavigation } from '@react-navigation/native';
-import { PepperStackRoutes } from '../../models/routes';
+import { PepperBuyerStackRoutes } from '../../models/routes';
 import {
   PepperForm, FormType, FormSchema, MenuItem, phoneNumberValidator, KeyBoardType,
 } from '../pepperForm';
@@ -25,11 +25,11 @@ const PepperLoginRouter = (): JSX.Element => {
     const { phoneNumber } = output;
     const isSubscribed = await LoginService.isSubscribedAndInitLogin(phoneNumber as string);
     if (isSubscribed) {
-      navigation.navigate(PepperStackRoutes.CodeLogin, { phoneNumber });
+      navigation.navigate(PepperBuyerStackRoutes.CodeLogin, { phoneNumber });
       return;
     }
     // Intro has subscription after it thats why we are routing to it
-    navigation.navigate(PepperStackRoutes.Intro, { phoneNumber });
+    navigation.navigate(PepperBuyerStackRoutes.Intro, { phoneNumber });
   };
 
   return <PepperForm schema={schema} onSubmit={onPhoneSubmit}/>;

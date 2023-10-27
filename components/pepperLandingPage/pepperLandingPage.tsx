@@ -4,7 +4,7 @@ import {
   ActivityIndicator, StyleSheet, Text, TouchableOpacity, View,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { PepperOrganizerStackRoutes, PepperStackRoutes } from '../../models/routes';
+import { PepperSellerStackRoutes, PepperBuyerStackRoutes } from '../../models/routes';
 import {
   pepper, white, space_unit, fontSizeHeader, indigo, black, fontSizeRegular, color, fontSizeSubSubHeader, indigo_3, fontSizeTypo, raven,
 } from '../../styles/common';
@@ -32,7 +32,7 @@ const PepperLandingPage = (): JSX.Element => {
       try {
         const isLoggedin = await LoginService.isLoggedin();
         if (isLoggedin) {
-          navigation.navigate(PepperStackRoutes.Main);
+          navigation.navigate(PepperBuyerStackRoutes.Main);
           return;
         }
         const isOrganizer = await UtilService.isOrganizer();
@@ -47,10 +47,10 @@ const PepperLandingPage = (): JSX.Element => {
 
   const onGo = (): void => {
     if (isOrganizer) {
-      navigation.navigate(PepperOrganizerStackRoutes.Login);
+      navigation.navigate(PepperSellerStackRoutes.Login);
       return;
     }
-    navigation.navigate(PepperStackRoutes.LoginRouter);
+    navigation.navigate(PepperBuyerStackRoutes.LoginRouter);
   };
 
   const onToggleApp = async(): Promise<void> => {

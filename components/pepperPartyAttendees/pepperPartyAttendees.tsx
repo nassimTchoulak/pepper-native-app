@@ -13,7 +13,7 @@ import { usePepperDispatch } from '../../hooks/store.hooks';
 import PepperImage, { PepperImages } from '../pepperImage/pepperImage';
 import PepperRoundButton from '../pepperRoundButton/pepperRoundButton';
 import { useNavigation } from '@react-navigation/native';
-import { PepperStackRoutes } from '../../models/routes';
+import { PepperBuyerStackRoutes } from '../../models/routes';
 
 const PepperPartyAttendees = (descriptionProps: { route: { params: { party: IParty, canCancel: boolean } }}): JSX.Element => {
   const { party } = descriptionProps.route.params;
@@ -26,7 +26,7 @@ const PepperPartyAttendees = (descriptionProps: { route: { params: { party: IPar
     <ImageBackground source={attendee.imgs[0]} style={styles.image} resizeMode="cover">
       <TouchableOpacity
         style={{ ...styles.imageMask, zIndex: styles.imageMask.zIndex + 1 }}
-        onPress={() => navigation.push(PepperStackRoutes.MatchDescription, { user: attendee, withContact: false })}
+        onPress={() => navigation.push(PepperBuyerStackRoutes.MatchDescription, { user: attendee, withContact: false })}
       >
       </TouchableOpacity>
       <LinearGradient colors={['transparent', color(black, .7), black]} style={styles.imageMask}>
@@ -70,7 +70,7 @@ const PepperPartyAttendees = (descriptionProps: { route: { params: { party: IPar
         style={styles.backButton}
         colors={[indigo, pepper]}
         iconName="pepper-arrowLeft"
-        onPress={() => navigation.navigate(PepperStackRoutes.Main)}
+        onPress={() => navigation.navigate(PepperBuyerStackRoutes.Main)}
       />
     </View>);
 };

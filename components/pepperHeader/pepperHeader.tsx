@@ -7,7 +7,7 @@ import { TouchableOpacity, View, Image } from 'react-native';
 import LoginService from '../../services/login';
 import { usePepperUser } from '../../hooks/user.hooks';
 import { UtilService } from '../../services/util';
-import { PepperStackRoutes } from '../../models/routes';
+import { PepperBuyerStackRoutes } from '../../models/routes';
 import { usePepperOrganizer } from '../../hooks/organizer.hooks';
 
 export const PepperTitle = (): JSX.Element => (
@@ -39,8 +39,8 @@ export const PepperUserProfile = (userProfileProps: {
   }, [currentUser]);
 
   const onToggleProfile = (): void => {
-    if (userProfileProps.route.name !== PepperStackRoutes.UserDescription) {
-      userProfileProps.navigation.push(PepperStackRoutes.UserDescription);
+    if (userProfileProps.route.name !== PepperBuyerStackRoutes.UserDescription) {
+      userProfileProps.navigation.push(PepperBuyerStackRoutes.UserDescription);
       return;
     }
     userProfileProps.navigation.goBack();

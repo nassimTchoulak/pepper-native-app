@@ -14,7 +14,7 @@ import { useNavigation } from '@react-navigation/native';
 import { usePepperUser } from '../../hooks/user.hooks';
 import { usePepperDispatch } from '../../hooks/store.hooks';
 import { fetchUser, deleteMatch } from '../../features/user/userActions';
-import { PepperStackRoutes } from '../../models/routes';
+import { PepperBuyerStackRoutes } from '../../models/routes';
 import { keyExtractor, limitTextLength } from '../../helpers/uiHelper';
 
 const PepperMatches = (): JSX.Element => {
@@ -43,7 +43,7 @@ const PepperMatches = (): JSX.Element => {
   const checkMatch = (match: IMatch): void => {
     switch (match.status) {
       case MatchStatus.ACCEPTED:
-        navigation.push(PepperStackRoutes.MatchDescription, { user: match, withContact: true });
+        navigation.push(PepperBuyerStackRoutes.MatchDescription, { user: match, withContact: true });
         break;
       case MatchStatus.WAITING:
         setSelectedMatch(match);

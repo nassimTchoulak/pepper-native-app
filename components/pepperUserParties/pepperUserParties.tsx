@@ -10,7 +10,7 @@ import { useNavigation } from '@react-navigation/native';
 import { usePepperUser } from '../../hooks/user.hooks';
 import { usePepperDispatch } from '../../hooks/store.hooks';
 import { fetchUser } from '../../features/user/userActions';
-import { PepperStackRoutes } from '../../models/routes';
+import { PepperBuyerStackRoutes } from '../../models/routes';
 import { capitalize, keyExtractor } from '../../helpers/uiHelper';
 import moment from 'moment';
 import PepperImage, { PepperImages } from '../pepperImage/pepperImage';
@@ -30,7 +30,7 @@ const PepperUserParties = (): JSX.Element => {
       <TouchableOpacity
         style={{ ...styles.imageMask, zIndex: styles.imageMask.zIndex + 1 }}
         onPress={() => navigation.push(
-          party.status === UserPartyStatus.ATTENDED ? PepperStackRoutes.PartyDetails : PepperStackRoutes.PartyDescription,
+          party.status === UserPartyStatus.ATTENDED ? PepperBuyerStackRoutes.PartyDetails : PepperBuyerStackRoutes.PartyDescription,
           { party, canCancel: false, withAddress: true })}
       >
       </TouchableOpacity>

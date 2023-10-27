@@ -100,24 +100,26 @@ const PepperQRCodeModal = (modalProps: { show: boolean, onRequestClose: () => vo
             <TouchableOpacity onPress={modalProps.onRequestClose} style={styles.closeButton}>
               <PepperIcon name="pepper-close" size={3 * space_unit} />
             </TouchableOpacity>
-            { mode === QRcodeModalMode.Display ? (
-              <>
-                <Text style={{ fontSize: fontSizeBody, marginBottom: 3 * space_unit }}>Ask someone to scan me!</Text>
-                <View style={styles.qrCodeContainer}>
-                    CONTAINER
-                </View>
-                <TouchableOpacity onPress={() => setMode(QRcodeModalMode.Scan) }>
-                  <Text style={{ fontSize: fontSizeBody, marginTop: 5 * space_unit }}>Scan</Text>
-                </TouchableOpacity>
-              </>
-            ) : (
-              <>
-                <Text style={{ fontSize: fontSizeBody, marginBottom: 3 * space_unit }}>Scan a QR code</Text>
-                <TouchableOpacity onPress={() => setMode(QRcodeModalMode.Display) }>
-                  <Text style={{ fontSize: fontSizeBody, marginTop: 5 * space_unit }}>Show your QR code</Text>
-                </TouchableOpacity>
-              </>
-            )}
+            { mode === QRcodeModalMode.Display ?
+              (
+                <>
+                  <Text style={{ fontSize: fontSizeBody, marginBottom: 3 * space_unit }}>Ask someone to scan me!</Text>
+                  <View style={styles.qrCodeContainer}>
+                      CONTAINER
+                  </View>
+                  <TouchableOpacity onPress={() => setMode(QRcodeModalMode.Scan) }>
+                    <Text style={{ fontSize: fontSizeBody, marginTop: 5 * space_unit }}>Scan</Text>
+                  </TouchableOpacity>
+                </>
+              ) :
+              (
+                <>
+                  <Text style={{ fontSize: fontSizeBody, marginBottom: 3 * space_unit }}>Scan a QR code</Text>
+                  <TouchableOpacity onPress={() => setMode(QRcodeModalMode.Display) }>
+                    <Text style={{ fontSize: fontSizeBody, marginTop: 5 * space_unit }}>Show your QR code</Text>
+                  </TouchableOpacity>
+                </>
+              )}
           </View>
         </BlurView>
       </Modal>
